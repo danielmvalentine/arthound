@@ -75,11 +75,10 @@ export default async function SearchPage({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {results.records.map((item) => {
-              // Prepare artwork data for liking
               const artworkData = {
                 id: item.id.toString(),
                 title: item.title,
-                artist: 'people' in item && item.people?.[0]?.name,
+                artist: ('people' in item && item.people?.[0]?.name) || undefined,
                 imageUrl: item.primaryimageurl,
                 dated: 'dated' in item ? item.dated : 
                        'begindate' in item ? `${item.begindate}–${item.enddate}` : undefined,
@@ -129,9 +128,7 @@ export default async function SearchPage({
                       </div>
                     </div>
                   </Link>
-                  
-                  {/* Like Button - positioned absolutely */}
-                  <div className="absolute top-3 right-3 z-10">
+                  <div className="absolute top-3 right-3 z-10"> 
                     <LikeButton artwork={artworkData} />
                   </div>
                 </div>
