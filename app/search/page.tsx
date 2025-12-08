@@ -82,7 +82,7 @@ export default async function SearchPage({
                 imageUrl: item.primaryimageurl,
                 dated: 'dated' in item ? item.dated : 
                        'begindate' in item ? `${item.begindate}–${item.enddate}` : undefined,
-                type: type
+                type: (type === 'exhibitions' ? 'exhibition' : 'artwork') as const
               };
 
               return (
