@@ -77,7 +77,7 @@ export default function DetailsPage({
     
     async function loadCollections() {
       try {
-        const collections = await getMyCollections(userId);
+        const collections = await getMyCollections(userId!);
         setUserCollections(collections);
       } catch (error) {
         console.error('Error loading collections:', error);
