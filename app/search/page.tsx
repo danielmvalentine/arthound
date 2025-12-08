@@ -75,14 +75,14 @@ export default async function SearchPage({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {results.records.map((item) => {
-              const artworkData = {
+              const artworkData: LikedArtwork = {
                 id: item.id.toString(),
                 title: item.title,
                 artist: ('people' in item && item.people?.[0]?.name) || undefined,
                 imageUrl: item.primaryimageurl,
                 dated: 'dated' in item ? item.dated : 
                        'begindate' in item ? `${item.begindate}–${item.enddate}` : undefined,
-                type: (type === 'exhibitions' ? 'exhibition' : 'artwork') as const
+                type: type === 'exhibitions' ? 'exhibition' : 'artwork'
               };
 
               return (
