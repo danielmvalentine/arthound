@@ -27,12 +27,9 @@ export default function ProfilePage() {
   const role = typeof window !== 'undefined' ? localStorage.getItem('role') : 'Art Enthusiast';
 
   useEffect(() => {
-    async function loadData() {
-      // Get liked artworks
-      const likes = getLikedArtworks();
+    async function loadData() { 
+      const likes = getLikedArtworks(); //grabs liked artwork 
       setLikedArtworks(likes);
-
-      // Get collections if user is logged in
       if (userId) {
         try {
           const data = await getMyCollections(userId);
@@ -98,7 +95,6 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-12">
-      {/* Profile Header */}
       <div className="bg-white rounded-lg border border-gray-200 p-8 mb-8">
         <div className="flex items-center gap-6">
           <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
@@ -115,7 +111,6 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* Collections Section */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold">Your Collections</h2>
@@ -165,7 +160,6 @@ export default function ProfilePage() {
         )}
       </div>
 
-      {/* Liked Artworks */}
       <div>
         <h2 className="text-2xl font-bold mb-6">Liked Artworks ({likedArtworks.length})</h2>
 
@@ -223,7 +217,6 @@ export default function ProfilePage() {
         )}
       </div>
 
-      {/* Create Collection Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-md w-full p-6">

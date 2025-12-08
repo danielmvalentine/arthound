@@ -36,12 +36,9 @@ export default function LoginPage() {
         return;
       }
 
-      // Store user info in localStorage
       localStorage.setItem('userId', data.userId);
       localStorage.setItem('username', data.username || formData.username);
       localStorage.setItem('role', formData.role);
-
-      // Redirect to profile page
       router.push('/profile');
     } catch (err) {
       setError('Failed to connect to server');
@@ -64,7 +61,6 @@ export default function LoginPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8">
-          {/* Toggle Tabs */}
           <div className="flex gap-2 mb-6 bg-gray-100 p-1 rounded-lg">
             <button
               onClick={() => setIsLogin(true)}
