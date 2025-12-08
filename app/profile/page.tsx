@@ -98,10 +98,10 @@ export default function ProfilePage() {
       <div className="bg-white rounded-lg border border-gray-200 p-8 mb-8">
         <div className="flex items-center gap-6">
           <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
-            {username.charAt(0).toUpperCase()}
+           {username?.charAt(0).toUpperCase() || 'U'}
           </div>
           <div>
-            <h1 className="text-3xl font-bold mb-1">{username}</h1>
+            <h1 className="text-3xl font-bold mb-1">{username || 'Guest'}</h1>
             <p className="text-gray-600">{role}</p>
             <div className="flex gap-4 mt-2 text-sm text-gray-600">
               <span>{likedArtworks.length} Liked</span>
