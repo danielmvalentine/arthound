@@ -1,4 +1,4 @@
-const API_KEY = process.env.HARVARD_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_HARVARD_API_KEY;
 const BASE_URL = 'https://api.harvardartmuseums.org';
 
 export interface Exhibition {

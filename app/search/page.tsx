@@ -1,7 +1,7 @@
 import { searchExhibitions, searchArtworks } from '@/lib/harvardApi';
 import Link from 'next/link';
 import Image from 'next/image';
-import LikeButton from '../components/LikeButton';
+import LikeButton from '@/components/LikeButton';
 
 export default async function SearchPage({
   searchParams,

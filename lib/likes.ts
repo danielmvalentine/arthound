@@ -1,5 +1,3 @@
-// Client-side like management (will move to backend later)
-
 export interface LikedArtwork {
     id: string;
     title: string;
@@ -25,12 +23,10 @@ export interface LikedArtwork {
     const index = likes.findIndex(item => item.id === artwork.id);
     
     if (index > -1) {
-      // Already liked - remove it
       likes.splice(index, 1);
       localStorage.setItem('likedArtworks', JSON.stringify(likes));
       return false;
     } else {
-      // Not liked - add it
       likes.push(artwork);
       localStorage.setItem('likedArtworks', JSON.stringify(likes));
       return true;
