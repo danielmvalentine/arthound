@@ -77,7 +77,7 @@ export default function DetailsPage({
     
     async function loadCollections() {
       try {
-        const collections = await getMyCollections(userId!);
+        const collections = await getMyCollections(userId);
         setUserCollections(collections);
       } catch (error) {
         console.error('Error loading collections:', error);
@@ -157,15 +157,13 @@ export default function DetailsPage({
     );
   }
 
-  if (!artwork) {
+  if (!artwork || artwork.error) {
     return (
       <div className="container mx-auto px-4 py-8">
         <Link href="/search" className="text-green-600 hover:text-green-700 mb-6 inline-block">
           ← Back to Search
         </Link>
-        <p className="text-red-600">
-          {artwork?.error ? 'Failed to load artwork. Please check your Harvard API key in .env.local' : 'Failed to load artwork details'}
-        </p>
+        <p className="text-red-600">Failed to load artwork details</p>
       </div>
     );
   }
@@ -187,7 +185,6 @@ export default function DetailsPage({
 
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-          {/* Image */}
           <div className="relative">
             {artwork.primaryimageurl ? (
               <div className="relative h-96 bg-gray-100 rounded-lg overflow-hidden">
@@ -223,7 +220,6 @@ export default function DetailsPage({
             </div>
           </div>
 
-          {/* Details */}
           <div>
             <h1 className="text-4xl font-bold mb-4">{artwork.title}</h1>
 
@@ -267,7 +263,6 @@ export default function DetailsPage({
         </div>
       </div>
 
-      {/* Notes Section */}
       <div className="bg-white rounded-lg border border-gray-200 p-8">
         <h2 className="text-2xl font-bold mb-6">Community Notes</h2>
 
@@ -334,7 +329,6 @@ export default function DetailsPage({
         )}
       </div>
 
-      {/* Add to Collection Modal */}
       {showCollectionModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-md w-full p-6">
