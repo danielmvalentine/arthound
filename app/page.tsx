@@ -281,7 +281,7 @@ export default function HomePage() {
             How ArtHound Works
           </h2>
           <p className="text-lg text-gray-600">
-            Simply search for artwork and see what other users have said about it.
+            Simply search for artwork  in the Harvard Museum of Art and see what other users have said about it.
           </p>
           <p className="text-lg text-gray-600">
             Alternatively, sign in to create and curate collections and write comments yourself!
